@@ -3,11 +3,13 @@ import {CommonModule} from '@angular/common';
 import {LayoutComponent} from './layout/layout.component';
 import {DropdownModule, GridModule, HeaderModule, NavbarModule, NavModule} from '@coreui/angular';
 import {RouterModule} from "@angular/router";
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import {RouterModule} from "@angular/router";
   ],
   exports: [
     LayoutComponent,
+    HeaderComponent,
   ]
 })
 export class CoreModule {

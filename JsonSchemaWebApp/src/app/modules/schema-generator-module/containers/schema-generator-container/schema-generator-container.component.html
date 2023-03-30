@@ -1,1 +1,29 @@
-<p>schema-generator-container works!</p>
+<c-container breakpoint="xl">
+<!--  <mat-tab-group>-->
+<!--    <mat-tab label="First"> Content 1 </mat-tab>-->
+<!--    <mat-tab label="Second"> Content 2 </mat-tab>-->
+<!--    <mat-tab label="Third"> Content 3 </mat-tab>-->
+<!--  </mat-tab-group>-->
+
+  <c-nav variant="pills">
+    <c-nav-item *ngFor="let nav of panes; index as i; first as isFirst; last as isLast">
+      <a [cTabContent]="tabContent"  [routerLink] [tabPaneIdx]="i" cNavLink>
+        {{nav.name}}
+      </a>
+    </c-nav-item>
+  </c-nav>
+  <c-tab-content #tabContent="cTabContent"
+                 (activeTabPaneIdxChange)="onTabChange($event)"
+                 [activeTabPaneIdx]="activePane">
+    <c-tab-pane *ngFor="let pane of panes; index as i;" class="p-3">
+      <form>
+        <div class="form-group">
+          <label for="exampleInput" [ngStyle]="{'fontSize':'28px'}">Podaj JSON do wygenerowania schematu</label>
+          <button cButton color="danger" [ngStyle]="{'margin': '5px','float': 'right'}" (click)="onDelete(activePane)">Usuń kartę</button>
+          <textarea class="form-control"  id="exampleInput" rows="28" cols="50" placeholder="Wprowadź tekst"></textarea>
+        </div>
+      </form>
+
+    </c-tab-pane>
+  </c-tab-content>
+</c-container>
