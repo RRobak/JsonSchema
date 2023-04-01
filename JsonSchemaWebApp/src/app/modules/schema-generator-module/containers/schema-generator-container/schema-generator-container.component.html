@@ -1,4 +1,6 @@
-<c-container breakpoint="xl">
+<!--<ng-container [ngStyle]="{'display': 'flex'}">-->
+<button cButton color="success" [ngStyle]="{'margin': '5px','width':'14%'}" (click)="onSend()">Generuj schemat</button>
+<c-container breakpoint="xl" >
 <!--  <mat-tab-group>-->
 <!--    <mat-tab label="First"> Content 1 </mat-tab>-->
 <!--    <mat-tab label="Second"> Content 2 </mat-tab>-->
@@ -18,12 +20,30 @@
     <c-tab-pane *ngFor="let pane of panes; index as i;" class="p-3">
       <form>
         <div class="form-group">
-          <label for="exampleInput" [ngStyle]="{'fontSize':'28px'}">Podaj JSON do wygenerowania schematu</label>
+          <label [ngStyle]="{'fontSize':'28px'}">Podaj JSON do wygenerowania schematu</label>
           <button cButton color="danger" [ngStyle]="{'margin': '5px','float': 'right'}" (click)="onDelete(activePane)">Usuń kartę</button>
-          <textarea class="form-control"  id="exampleInput" rows="28" cols="50" placeholder="Wprowadź tekst"></textarea>
+          <textarea class="form-control"  rows="28" cols="50" placeholder="Wprowadź tekst" [attr.id]="i"></textarea>
         </div>
       </form>
 
     </c-tab-pane>
   </c-tab-content>
 </c-container>
+
+<button cButton color="success" [ngStyle]="{'margin': '5px','width':'14%'}" (click)="onSend()">Generuj schemat</button>
+<!--</ng-container>-->
+
+
+<c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
+  <c-modal-header>
+    <h5 cModalTitle>Informacja</h5>
+<!--    <button (click)="toggleLiveDemo()" cButtonClose></button>-->
+  </c-modal-header>
+  <c-modal-body>{{modalValueFirst}}<strong>{{modalValueMiddle}}</strong>{{modalValueLast}}
+  </c-modal-body>
+  <c-modal-footer>
+    <button (click)="toggleModal()" cButton color="primary">
+      Zamknij
+    </button>
+  </c-modal-footer>
+</c-modal>

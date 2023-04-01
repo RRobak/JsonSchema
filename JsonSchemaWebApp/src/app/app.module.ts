@@ -16,6 +16,7 @@ import {
 import {CoreModule} from "./core/core.module";
 import {SchemaGeneratorModuleModule} from "./modules/schema-generator-module/schema-generator-module.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SchemaDisplayerModule} from "./modules/schema-displayer/schema-displayer.module";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     CoreModule,
     SchemaGeneratorModuleModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SchemaDisplayerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
