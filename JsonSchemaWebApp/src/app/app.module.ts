@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {LayoutComponent} from "./core/layout/layout.component";
 import {
   ButtonModule,
-  DropdownModule,
+  DropdownModule, FooterModule,
   GridModule,
   HeaderModule,
   NavbarModule,
@@ -37,7 +37,8 @@ import {SchemaDisplayerModule} from "./modules/schema-displayer/schema-displayer
     CoreModule,
     SchemaGeneratorModuleModule,
     BrowserAnimationsModule,
-    SchemaDisplayerModule
+    SchemaDisplayerModule,
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
