@@ -1,4 +1,4 @@
-import {Component, ElementRef, QueryList, ViewChildren} from '@angular/core';
+import {Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 
 @Component({
   selector: 'app-schema-generator-container',
@@ -6,6 +6,7 @@ import {Component, ElementRef, QueryList, ViewChildren} from '@angular/core';
   styleUrls: ['./schema-generator-container.component.scss']
 })
 export class SchemaGeneratorContainerComponent {
+  @ViewChild('target') target!: ElementRef;
   @ViewChildren('tabContent', {read: ElementRef}) tabContents!: QueryList<ElementRef>;
   public panes = [
     {name: 'Json #1', content: '0', contentCounter: 0},
@@ -69,6 +70,8 @@ export class SchemaGeneratorContainerComponent {
       this.modalValueMiddle=namesOfBadJsons
       this.modalValueLast='były niepoprawne i zostały pominięte'
     }
+    let el = document.getElementById('target');
+    el?.scrollIntoView();
     this.visible=true
 
 
